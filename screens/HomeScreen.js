@@ -9,16 +9,27 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.device}>
         <View style={styles.screen}>
-          <Text style={styles.title}>ruhimatik</Text>
+          <Text style={styles.title}>zikirmatik</Text>
           <Text style={styles.count}>{count}</Text>
         </View>
-
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => setCount((prev) => prev + 1)}
-        >
-          <Text style={styles.buttonText}>Artır</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <View style={styles.buttonWrapper}>
+            <TouchableOpacity
+              style={styles.mainButton}
+              onPress={() => setCount((prev) => prev + 1)}
+            >
+              <Text style={styles.buttonText}>COUNT</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonWrapper}>
+            <TouchableOpacity
+              style={styles.resetButton}
+              onPress={() => setCount(0)}
+            >
+              <Text style={styles.resetButtonText}>RESET</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -27,43 +38,81 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: "#808080",
     alignItems: "center",
     justifyContent: "center",
   },
   device: {
-    width: 300,
-    height: 500,
-    backgroundColor: colors.device,
-    borderRadius: 20,
+    width: 250,
+    height: 400,
+    backgroundColor: "#000000",
+    borderRadius: 30,
+    borderWidth: 2,
+    borderColor: "#000",
+    alignItems: "center",
     padding: 20,
   },
   screen: {
-    flex: 1,
-    backgroundColor: colors.screen,
+    width: "100%",
+    height: 120,
+    backgroundColor: "#FFFFFF",
     borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 15,
   },
   title: {
-    fontSize: 24,
-    color: colors.text,
-    marginBottom: 20,
+    fontSize: 20,
+    color: "#000",
+    textAlign: "center",
+    opacity: 0.5,
+    position: "absolute",
+    width: "100%",
+    top: 5,
+    left: 15,
+    paddingHorizontal: 15,
   },
   count: {
     fontSize: 48,
-    color: colors.text,
+    color: "#FF0000",
+    textAlign: "center",
+    marginTop: 28,
+    fontWeight: "bold",
   },
-  button: {
-    backgroundColor: colors.button,
-    padding: 15,
-    borderRadius: 10,
-    marginTop: 20,
+  buttonContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 40,
+    gap: 20,
+  },
+  buttonWrapper: {
     alignItems: "center",
   },
+  mainButton: {
+    width: 80,
+    height: 80,
+    backgroundColor: "#4CAF50",
+    borderRadius: 40,
+    borderWidth: 2,
+    borderColor: "#000",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  resetButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: "#FF6B6B",
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: "#000",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   buttonText: {
-    color: colors.buttonText,
-    fontSize: 18,
+    fontSize: 12,
+    color: "#000",
+  },
+  resetButtonText: {
+    fontSize: 8,
+    color: "#000",
   },
 });
 
