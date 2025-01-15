@@ -6,28 +6,36 @@ const HomeScreen = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.device}>
-        <View style={styles.screen}>
-          <Text style={styles.title}>zikirmatik</Text>
-          <Text style={styles.count}>{count}</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <View style={styles.buttonWrapper}>
-            <TouchableOpacity
-              style={styles.mainButton}
-              onPress={() => setCount((prev) => prev + 1)}
-            >
-              <Text style={styles.buttonText}>COUNT</Text>
-            </TouchableOpacity>
+    <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <View style={styles.container}>
+        <View style={styles.device}>
+          <View style={styles.screen}>
+            <Text style={styles.title}>zikirmatik</Text>
+            <Text style={styles.count}>{count}</Text>
           </View>
-          <View style={styles.buttonWrapper}>
-            <TouchableOpacity
-              style={styles.resetButton}
-              onPress={() => setCount(0)}
-            >
-              <Text style={styles.resetButtonText}>RESET</Text>
-            </TouchableOpacity>
+          <View style={styles.buttonContainer}>
+            <View style={styles.buttonWrapper}>
+              <TouchableOpacity
+                style={styles.mainButton}
+                onPress={() => {
+                  setCount((prev) => prev + 1);
+                  console.log("Artırma çalıştı");
+                }}
+              >
+                <Text style={styles.buttonText}>COUNT</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.buttonWrapper}>
+              <TouchableOpacity
+                style={styles.resetButton}
+                onPress={() => {
+                  setCount(0);
+                  console.log("Sıfırlama çalıştı");
+                }}
+              >
+                <Text style={styles.resetButtonText}>RESET</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>
